@@ -9,7 +9,7 @@ using Unity.Transforms;
 public class EnemyFireSystem : SystemBase
 {
     BeginInitializationEntityCommandBufferSystem m_EntityCommandBufferSystem;
-    float rateOfFire = 0.15f;
+    float rateOfFire = 1f;
     // timer until weapon and shoot again
     float shotTimer = 0;
 
@@ -25,19 +25,25 @@ public class EnemyFireSystem : SystemBase
     protected override void OnUpdate()
     {
         var commandBuffer = m_EntityCommandBufferSystem.CreateCommandBuffer().ToConcurrent();
+        shotTimer += Time.DeltaTime;
+        if (shotTimer >= rateOfFire)
+        {
+            Entities.WithName("EnemyFireSystem").WithBurst(FloatMode.Default, FloatPrecision.Standard, true).ForEach((Entity entity, int entityInQueryIndex, in EnemyFire enemyFire, in LocalToWorld location) =>
+            {
 
-        Entities.WithName("EnemyFireSystem").WithBurst(FloatMode.Default, FloatPrecision.Standard, true).ForEach((Entity entity, int entityInQueryIndex, in EnemyFire enemyFire, in LocalToWorld location) =>
-          {
-             
-              //que up spawn in buffer
-              var instance = commandBuffer.Instantiate(entityInQueryIndex, enemyFire.bulletPrefab);
-              var position = math.transform(location.Value, new float3(0, 0, 0));
-              commandBuffer.SetComponent(entityInQueryIndex, instance, new Translation { Value = position });
-              
-          }).ScheduleParallel();
+                //que up spawn in buffer
 
+                var instance = commandBuffer.Instantiate(entityInQueryIndex, enemyFire.bulletPrefab);
+                var position = math.transform(location.Value, new float3(0, 0, 0));
+                commandBuffer.SetComponent(entityInQueryIndex, instance, new Translation { Value = position });
+
+            }).ScheduleParallel();
+
+
+
+            m_EntityCommandBufferSystem.AddJobHandleForProducer(Dependency);
+            shotTimer = 0;
+        }
         
-
-        m_EntityCommandBufferSystem.AddJobHandleForProducer(Dependency);
     }
 }
