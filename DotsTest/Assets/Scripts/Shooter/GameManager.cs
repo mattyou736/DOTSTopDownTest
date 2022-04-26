@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public Transform player;
+    public GameObject bullet;
 
 
     void Awake()
@@ -18,12 +20,19 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public static void DebugTest()
+    {
+        Debug.Log("hi there bullet spawner ");
     }
 
     public static Vector3 GetPlayerPosition()

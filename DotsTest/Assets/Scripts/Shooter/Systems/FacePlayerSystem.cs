@@ -17,5 +17,7 @@ public class FacePlayerSystem : ComponentSystem
             //set correct heading
             rot.Value = quaternion.LookRotation(direction, math.up());
         });
+
+        
     }
 }

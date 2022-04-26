@@ -2,9 +2,11 @@
 using Unity.Transforms;
 using Unity.Mathematics;
 
+[UpdateInGroup(typeof(SimulationSystemGroup))]
 public class DestructionSystem : ComponentSystem
 {
     float thresholdDis = 2f;
+    
 
     protected override void OnUpdate()
     {

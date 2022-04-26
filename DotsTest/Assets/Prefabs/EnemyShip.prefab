@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7003187463376731438}
+  - component: {fileID: 8573967983822635950}
+  - component: {fileID: 1407307133083775798}
   m_Layer: 0
   m_Name: FirePos
   m_TagString: Untagged
@@ -30,6 +32,34 @@ Transform:
   m_Father: {fileID: 1745087727461633140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8573967983822635950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108544758197478414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cbebcc0a9a41f41a33aaab8de8c796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1407307133083775798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108544758197478414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f477fb77e3eaa2244b3f7aae8caac651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 44123215203494562, guid: 613aa7e8925ac884aa581ec0e9fd7f42,
+    type: 3}
+  spawnDelay: 2
+  spawnTimer: 1
 --- !u!1 &3345213353456336487
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +74,7 @@ GameObject:
   - component: {fileID: 8672084710411954123}
   - component: {fileID: 307103591398163659}
   - component: {fileID: 2840582369057718680}
+  - component: {fileID: 7613875962429746758}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -151,3 +182,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eb0d6856b9e464486f0a02daa61ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7613875962429746758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345213353456336487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0eb15129744a0d48a62fdf58d884afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupPrefab: {fileID: 266290840891248545, guid: 9f43cda9ae989404fa1ff939b6783d66,
+    type: 3}

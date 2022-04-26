@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5006512734930908402}
+  bullet: {fileID: 0}
 --- !u!4 &237037920
 Transform:
   m_ObjectHideFlags: 0
@@ -231,7 +232,7 @@ MonoBehaviour:
     type: 3}
   minSpeed: 5
   maxSpeed: 15
-  spawnAmount: 50
+  spawnAmount: 5
   spawnInterval: 10
   spawnRadius: 30
 --- !u!4 &310694145
@@ -294,7 +295,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7782805, y: 1}
+    m_SensorSize: {x: 1.7798165, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
