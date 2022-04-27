@@ -4,5 +4,5 @@
 [GenerateAuthoringComponent]
 public class BulletTag : IComponentData
 {
-
+    public bool aimed;
 }
