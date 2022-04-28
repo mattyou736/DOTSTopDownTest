@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     float speed = 3f;
     [Range(0.05f, 0.3f)][SerializeField] 
     float turnSpeed = 0.1f;
-
+    [SerializeField]
+    int playerlvl = 1;
     private Rigidbody playerRigidbody;
 
     // where the weapon's bullet appears
@@ -157,6 +158,17 @@ public class Player : MonoBehaviour
         // set it to the muzzle angle and position
         entityManager.SetComponentData(bullet, new Translation { Value = bulletSpawn.position });
         entityManager.SetComponentData(bullet, new Rotation { Value = bulletSpawn.rotation });
+        if(playerlvl == 2)
+        {
+            Entity bullet2 = entityManager.Instantiate(bulletEntityPrefab);
+            entityManager.SetComponentData(bullet2, new Translation { Value = new Vector3(bulletSpawn.position.x + 2, bulletSpawn.position.y, bulletSpawn.position.z) });
+            entityManager.SetComponentData(bullet2, new Rotation { Value = bulletSpawn.rotation });
+        } 
+    }
+
+    public void LvlUp()
+    {
+        playerlvl = 2;
     }
 
    

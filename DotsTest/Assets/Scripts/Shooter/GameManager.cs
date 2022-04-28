@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public Transform player;
     public GameObject bullet;
 
-
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -48,6 +47,9 @@ public class GameManager : MonoBehaviour
     public static void UpgradePlayer()
     {
         Debug.Log("Upgrade");
+        Player playerScript;
 
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        playerScript.LvlUp();
     }
 }
